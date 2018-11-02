@@ -1,9 +1,9 @@
 {
   "name": "khueue-diary",
-  "private": true,
   "version": "0.0.0",
-  "description": "My private diary",
+  "description": "Diary of khueue.com",
   "keywords": [],
+  "private": true,
   "license": "",
   "scripts": {
     "dev": "bash ./app/bin/app-dev.sh",
@@ -14,6 +14,8 @@
     "parcel-bundler": "1.10.3",
     "typescript": "3.1.6",
     "mithril": "2.0.0-rc.0",
-    "@types/mithril": "1.1.13"
+    "@types/mithril": "1.1.13",
+    "firebase": "5.5.7",
+    "moment": "2.22.2"
   }
 }

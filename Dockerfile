@@ -2,6 +2,7 @@ FROM node:8.12.0-alpine
 
 WORKDIR /workdir
 
+# Parcel requires util-linux.
 RUN apk add --no-cache \
 	bash \
 	util-linux \
@@ -10,4 +11,5 @@ RUN apk add --no-cache \
 COPY ./package.json ./
 RUN yarn install
 
-ENTRYPOINT ["yarn", "--help"]
+ENTRYPOINT ["yarn"]
+CMD ["--help"]
