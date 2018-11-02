@@ -10,5 +10,4 @@ RUN apk add --no-cache \
 COPY ./package.json ./
 RUN yarn install
 
-ENTRYPOINT ["yarn", "run", "dev"]
-# ENTRYPOINT ["node_modules/.bin/parcel", "serve", "--help"]
+ENTRYPOINT ["yarn", "--help"]

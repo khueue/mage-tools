@@ -1,5 +1,5 @@
 import hello from './message/message';
-console.log(hello({}, ["meee again", 6665]));
+console.log(hello("meee again"));
 
 import m from 'mithril';
 
@@ -7,7 +7,7 @@ var FancyComponent = {
 	view: function() {
 		return m(".fancy", "Hello world")
 	},
-	onbeforeremove: function(vnode) {
+	onbeforeremove: function(vnode: any) {
 		vnode.dom.classList.add("exit");
 		return new Promise(function(resolve) {
 			vnode.dom.addEventListener("animationend", resolve)

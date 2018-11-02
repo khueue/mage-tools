@@ -1,17 +1,19 @@
 {
-	"name": "khueue-diary",
-	"private": true,
-	"version": "0.0.0",
-	"description": "My private diary",
-	"keywords": [],
-	"scripts": {
-		"dev": "bash ./app/bin/app-dev.sh",
-		"build": "bash ./app/bin/app-build.sh"
-	},
-	"dependencies": {
-		"parcel-bundler": "1.10.3",
-		"typescript": "3.1.6",
-		"mithril": "2.0.0-rc.0"
-	},
-	"license": ""
+  "name": "khueue-diary",
+  "private": true,
+  "version": "0.0.0",
+  "description": "My private diary",
+  "keywords": [],
+  "license": "",
+  "scripts": {
+    "dev": "bash ./app/bin/app-dev.sh",
+    "build": "bash ./app/bin/app-build.sh",
+    "watch-compile": "bash ./app/bin/app-watch-compile.sh"
+  },
+  "dependencies": {
+    "parcel-bundler": "1.10.3",
+    "typescript": "3.1.6",
+    "mithril": "2.0.0-rc.0",
+    "@types/mithril": "1.1.13"
+  }
 }
