@@ -3,10 +3,10 @@ default:
 
 IMAGE_TAG=mithril-test
 
-docker-build:
+app-docker-build:
 	docker build --quiet --tag $(IMAGE_TAG) ./
 
-app-dev: docker-build
+app-dev: app-docker-build
 	rm -rf ./dist
 	mkdir -p ./dist
 	docker run \
@@ -21,7 +21,7 @@ app-dev: docker-build
 		$(IMAGE_TAG) \
 		run dev
 
-app-build: docker-build
+app-build: app-docker-build
 	rm -rf ./dist
 	mkdir -p ./dist
 	docker run \
@@ -34,7 +34,7 @@ app-build: docker-build
 		$(IMAGE_TAG) \
 		run build
 
-app-watch-compile: docker-build
+app-watch-compile: app-docker-build
 	rm -rf ./dist
 	mkdir -p ./dist
 	docker run \
