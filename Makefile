@@ -6,9 +6,11 @@ IMAGE_TAG=mithril-test
 app-docker-build:
 	docker build --quiet --tag $(IMAGE_TAG) ./
 
-app-dev: app-docker-build
+app-setup:
 	rm -rf ./dist
 	mkdir -p ./dist
+
+app-dev: app-setup app-docker-build
 	docker run \
 		--interactive \
 		--tty \
@@ -21,9 +23,7 @@ app-dev: app-docker-build
 		$(IMAGE_TAG) \
 		run dev
 
-app-build: app-docker-build
-	rm -rf ./dist
-	mkdir -p ./dist
+app-build: app-setup app-docker-build
 	docker run \
 		--interactive \
 		--tty \
@@ -34,9 +34,7 @@ app-build: app-docker-build
 		$(IMAGE_TAG) \
 		run build
 
-app-watch-compile: app-docker-build
-	rm -rf ./dist
-	mkdir -p ./dist
+app-watch-compile: app-setup app-docker-build
 	docker run \
 		--interactive \
 		--tty \
