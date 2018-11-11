@@ -1,15 +1,17 @@
-FROM node:8.12.0-alpine
+FROM node:11.1.0-alpine
 
 WORKDIR /workdir
 
 # Parcel requires util-linux.
 RUN apk add --no-cache \
+	build-base \
+	python \
 	bash \
 	util-linux \
 	yarn
 
 COPY ./package.json ./
-RUN yarn install
+RUN npm install --verbose
 
-ENTRYPOINT ["yarn"]
+ENTRYPOINT ["npm"]
 CMD ["--help"]

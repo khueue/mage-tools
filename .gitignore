@@ -1,1 +1,2 @@
-dist
+app/_build.dev
+app/_build.dist
