@@ -1,5 +1,6 @@
 import * as firebase from 'firebase/app';
 import 'firebase/firestore';
+import 'firebase/auth';
 
 import APP_CONFIG from '/js/app-config';
 
@@ -13,9 +14,4 @@ try {
 	}
 }
 
-const db = firebase.firestore();
-db.settings({
-	timestampsInSnapshots: true,
-});
-
-export default db;
+export default firebase;
