@@ -5,11 +5,11 @@ import 'buefy/dist/buefy.css';
 Vue.use(Buefy);
 Vue.config.productionTip = false;
 
-import App from '/js/app';
+import DiaryPostList from '/js/components/DiaryPostList.vue';
 
 window.app = new Vue({
 	el: '#app',
 	render: function(h) {
-		return h(App);
+		return h(DiaryPostList);
 	},
 });

@@ -1,46 +1,10 @@
-<template lang="pug">
-#app
-	.hero.is-fullheight.is-dark
-		.hero-head
-			.container.is-pulled-right
-				.field
-					.control.sign-in-control
-						transition(name="fade")
-							.signed-out(key="signed-in" v-if="!currentUser")
-								button.button(@click="signInWithGoogle") Sign in
-							.signed-in(key="signed-out" v-else)
-								button.button(@click="signOut") Sign out ({{ currentUser.email }})
-		.hero-body
-			.container(v-if="currentUser")
-				button.button(@click="editNewEntry") Add new entry
-				Entry(
-					v-if="newEntry"
-					:entry="newEntry"
-					@save="saveEntry"
-					@delete-entry="deleteEntry"
-				)
-				transition-group(v-if="entries.length > 0" name="entry-list")
-					Entry(
-						v-for="entry in entries"
-						:key="entry.renderKey"
-						:entry="entry"
-						@save="saveEntry"
-						@delete-entry="deleteEntry"
-					)
-				.empty(v-else) No entries!
-			.container(v-else)
-				p You need to sign in!
-		.hero-foot
-</template>
-
 <script lang="js">
 import firebase from '/js/firebase';
 import db from '/js/firebase/db';
 
-import Entry from '/js/entry';
+import DiaryPost from '/js/components/DiaryPost.vue';
 
 export default {
-	name: 'app',
 	data() {
 		return {
 			entries: [],
@@ -50,7 +14,7 @@ export default {
 		};
 	},
 	components: {
-		Entry,
+		DiaryPost,
 	},
 	created() {
 		const self = this;
@@ -145,6 +109,41 @@ export default {
 	},
 };
 </script>
+
+<template lang="pug">
+#app
+	.hero.is-fullheight.is-dark
+		.hero-head
+			.container.is-pulled-right
+				.field
+					.control.sign-in-control
+						transition(name="fade")
+							.signed-out(key="signed-in" v-if="!currentUser")
+								button.button(@click="signInWithGoogle") Sign in
+							.signed-in(key="signed-out" v-else)
+								button.button(@click="signOut") Sign out ({{ currentUser.email }})
+		.hero-body
+			.container(v-if="currentUser")
+				button.button(@click="editNewEntry") Add new entry
+				DiaryPost(
+					v-if="newEntry"
+					:entry="newEntry"
+					@save="saveEntry"
+					@delete-entry="deleteEntry"
+				)
+				transition-group(v-if="entries.length > 0" name="entry-list")
+					DiaryPost(
+						v-for="entry in entries"
+						:key="entry.renderKey"
+						:entry="entry"
+						@save="saveEntry"
+						@delete-entry="deleteEntry"
+					)
+				.empty(v-else) No entries!
+			.container(v-else)
+				p You need to sign in!
+		.hero-foot
+</template>
 
 <style lang="scss" scoped>
 .sign-in-control {

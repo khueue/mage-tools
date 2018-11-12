@@ -1,29 +1,7 @@
-<template lang="pug">
-.columns.entry
-	.column.is-one-quarter
-		p {{ createdAtPretty }}
-		p(v-show="hasBeenEdited" :title="updatedAtPretty") (updated: {{ updatedAtRelative }})
-	.column(v-on:dblclick="edit")
-		.viewing(v-if="!isEditing")
-			p {{ message }}
-		.editing(v-else)
-			.field
-				.control
-					textarea.textarea(v-model="draftMessage" v-focus="true" @keyup.esc="cancelEdit") {{ draftMessage }}
-			.field
-				.control
-					button.button.is-primary(@click="save") Save
-					button.button(@click="cancelEdit") Cancel
-					button.button.is-danger.is-pulled-right(@click="deleteEntry") Delete
-</template>
-
 <script lang="js">
 import * as moment from 'moment';
 
-import db from '/js/firebase/db';
-
 export default {
-	name: 'entry',
 	props: {
 		entry: {
 			type: Object,
@@ -81,6 +59,25 @@ export default {
 	},
 };
 </script>
+
+<template lang="pug">
+.columns.entry
+	.column.is-one-quarter
+		p {{ createdAtPretty }}
+		p(v-show="hasBeenEdited" :title="updatedAtPretty") (updated: {{ updatedAtRelative }})
+	.column(v-on:dblclick="edit")
+		.viewing(v-if="!isEditing")
+			p {{ message }}
+		.editing(v-else)
+			.field
+				.control
+					textarea.textarea(v-model="draftMessage" v-focus="true" @keyup.esc="cancelEdit") {{ draftMessage }}
+			.field
+				.control
+					button.button.is-primary(@click="save") Save
+					button.button(@click="cancelEdit") Cancel
+					button.button.is-danger.is-pulled-right(@click="deleteEntry") Delete
+</template>
 
 <style lang="scss" scoped>
 </style>
