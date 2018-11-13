@@ -16,6 +16,9 @@ export default {
 		};
 	},
 	computed: {
+		isNew() {
+			return !this.id;
+		},
 		hasBeenEdited() {
 			return this.meta.createdAt !== this.meta.updatedAt;
 		},
@@ -35,6 +38,7 @@ export default {
 		},
 		cancelEdit() {
 			this.isEditing = false;
+			this.$emit('cancel-post', this);
 		},
 		save() {
 			this.isEditing = false;
@@ -76,7 +80,7 @@ export default {
 				.control
 					button.button.is-primary(@click="save") Save
 					button.button(@click="cancelEdit") Cancel
-					button.button.is-danger.is-pulled-right(@click="deleteEntry") Delete
+					button.button.is-danger.is-pulled-right(v-if="!isNew" @click="deleteEntry") Delete
 </template>
 
 <style lang="scss" scoped>

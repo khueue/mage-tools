@@ -7,8 +7,7 @@ RUN apk add --no-cache \
 	build-base \
 	python \
 	bash \
-	util-linux \
-	yarn
+	util-linux
 
 COPY ./package.json ./
 RUN npm install --verbose

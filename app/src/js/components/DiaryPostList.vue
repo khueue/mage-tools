@@ -47,20 +47,36 @@ export default {
 				entriesColl.doc(entry.id).set({
 					message: entry.message,
 					meta: entry.meta,
+				}).then(function () {
+					console.log('Set!');
+				}).catch(function (error) {
+					console.error(error);
 				});
 			} else {
 				self.newEntry = null;
 				entriesColl.add({
 					message: entry.message,
 					meta: entry.meta,
+				}).then(function (doc) {
+					console.log('Added!');
+				}).catch(function (error) {
+					console.error(error);
 				});
 			}
-			// error handling XXX
 		},
 		deleteEntry(entry) {
 			const self = this;
 			const entriesColl = db.collection('users').doc(self.currentUser.uid).collection('entries');
-			entriesColl.doc(entry.id).delete();
+			entriesColl.doc(entry.id).delete()
+			.then(function () {
+				console.log('Deleted!');
+			}).catch(function (error) {
+				console.error(error);
+			});
+		},
+		cancelNewPost(entry) {
+			const self = this;
+			self.newEntry = null;
 		},
 		editNewEntry() {
 			const self = this;
@@ -130,6 +146,7 @@ export default {
 					:entry="newEntry"
 					@save="saveEntry"
 					@delete-entry="deleteEntry"
+					@cancel-post="cancelNewPost"
 				)
 				transition-group(v-if="entries.length > 0" name="entry-list")
 					DiaryPost(

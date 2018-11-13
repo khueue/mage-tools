@@ -11,11 +11,12 @@
     "pretty": "bash ./app/bin/app-pretty.sh",
     "build": "bash ./app/bin/app-build.sh",
     "watch-compile": "bash ./app/bin/app-watch-compile.sh",
-    "outdated-deps": "yarn outdated"
+    "outdated-deps": "npm outdated"
   },
   "devDependencies": {
     "parcel-bundler": "1.10.3",
     "vue": "2.5.17",
+    "vue-router": "3.0.1",
     "vue-template-compiler": "2.5.17",
     "vue-hot-reload-api": "2.3.1",
     "@vue/component-compiler-utils": "2.3.0",
@@ -25,11 +26,11 @@
     "firebase": "5.5.8",
     "moment": "2.22.2",
     "moment-timezone": "0.5.23",
-    "prettier": "1.15.1",
+    "prettier": "1.15.2",
     "eslint": "5.9.0",
     "eslint-plugin-vue": "4.7.1",
     "eslint-plugin-prettier":"3.0.0",
-    "eslint-config-prettier":"3.1.0"
+    "eslint-config-prettier":"3.3.0"
   },
   "dependencies": {
   },

@@ -1,15 +1,34 @@
 import Vue from 'vue';
+import VueRouter from 'vue-router';
 import Buefy from 'buefy';
 import 'buefy/dist/buefy.css';
 
 Vue.use(Buefy);
+Vue.use(VueRouter);
 Vue.config.productionTip = false;
 
+import App from '/js/components/App.vue';
 import DiaryPostList from '/js/components/DiaryPostList.vue';
+import RitualSpell from '/js/components/RitualSpell.vue';
+
+const router = new VueRouter({
+	routes: [
+		{
+			path: '/',
+			component: DiaryPostList,
+		},
+		{
+			path: '/ritual',
+			component: RitualSpell,
+		},
+	],
+});
 
 window.app = new Vue({
-	el: '#app',
-	render: function(h) {
-		return h(DiaryPostList);
+	router,
+	render(h) {
+		return h(App);
 	},
 });
+
+window.app.$mount('#app');

@@ -9,12 +9,11 @@ app-docker-build:
 	docker build --tag $(IMAGE_TAG) ./
 
 app-setup:
-	rm -rf ./app/_build.dev/*
-	rm -rf ./app/_build.dist/*
-	mkdir -p ./app/_build.dev
-	mkdir -p ./app/_build.dist
+	rm -rf ./app/_build/*
+	mkdir -p ./app/_build/dev
+	mkdir -p ./app/_build/dist
 
-app-yarn: app-setup app-docker-build
+app-npm: app-setup app-docker-build
 	docker run --interactive --tty --rm \
 		-p 1234:1234 \
 		-p 4321:4321 \

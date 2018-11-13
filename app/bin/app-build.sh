@@ -6,5 +6,5 @@ set -o nounset
 set -o xtrace
 
 parcel build ./app/src/index.pug \
-	--out-dir ./app/_build.dist \
+	--out-dir ./app/_build/dist \
 	--log-level 4
