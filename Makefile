@@ -8,12 +8,7 @@ export DOCKER_BUILDKIT=0
 app-docker-build:
 	docker build --tag $(IMAGE_TAG) ./
 
-app-setup:
-	rm -rf ./app/_build/*
-	mkdir -p ./app/_build/dev
-	mkdir -p ./app/_build/dist
-
-app-npm: app-setup app-docker-build
+app-npm: app-docker-build
 	docker run --interactive --tty --rm \
 		-p 1234:1234 \
 		-p 4321:4321 \
@@ -21,7 +16,7 @@ app-npm: app-setup app-docker-build
 		$(IMAGE_TAG) \
 		--help
 
-app-dev: app-setup app-docker-build
+app-dev: app-docker-build
 	docker run --interactive --tty --rm \
 		-p 1234:1234 \
 		-p 4321:4321 \
@@ -29,31 +24,31 @@ app-dev: app-setup app-docker-build
 		$(IMAGE_TAG) \
 		run dev
 
-app-lint: app-setup app-docker-build
+app-lint: app-docker-build
 	docker run --interactive --tty --rm \
 		--mount "type=bind,source=$(PWD)/app,target=/workdir/app" \
 		$(IMAGE_TAG) \
 		run lint
 
-app-pretty: app-setup app-docker-build
+app-pretty: app-docker-build
 	docker run --interactive --tty --rm \
 		--mount "type=bind,source=$(PWD)/app,target=/workdir/app" \
 		$(IMAGE_TAG) \
 		run pretty
 
-app-outdated-deps: app-setup app-docker-build
+app-outdated-deps: app-docker-build
 	docker run --interactive --tty --rm \
 		--mount "type=bind,source=$(PWD)/app,target=/workdir/app" \
 		$(IMAGE_TAG) \
 		run outdated-deps
 
-app-build: app-setup app-docker-build
+app-build: app-docker-build
 	docker run --interactive --tty --rm \
 		--mount "type=bind,source=$(PWD)/app,target=/workdir/app" \
 		$(IMAGE_TAG) \
 		run build
 
-app-watch-compile: app-setup app-docker-build
+app-watch-compile: app-docker-build
 	docker run --interactive --tty --rm \
 		--mount "type=bind,source=$(PWD)/app,target=/workdir/app" \
 		$(IMAGE_TAG) \
