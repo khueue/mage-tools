@@ -88,9 +88,11 @@
                     },
                     "Origins": [
                         {
-                            "DomainName": "khueue-mage-tools-app.s3.amazonaws.com",
-                            "Id": "origin",
-                            "S3OriginConfig": {}
+                            "CustomOriginConfig": {
+                                "OriginProtocolPolicy": "http-only"
+                            },
+                            "DomainName": "khueue-mage-tools-app.s3-website-eu-west-1.amazonaws.com",
+                            "Id": "origin"
                         }
                     ],
                     "PriceClass": "PriceClass_100",

@@ -4,7 +4,18 @@ export default {}
 
 <template lang="pug">
 #app
-	router-view
+	transition(name="view-fade" mode="out-in")
+		router-view
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.view-fade-enter-active,
+.view-fade-leave-active {
+  transition: opacity .25s ease;
+}
+
+.view-fade-enter,
+.view-fade-leave-to {
+  opacity: 0;
+}
+</style>
