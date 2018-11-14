@@ -68,8 +68,8 @@
                                     ],
                                     "Effect": "Allow",
                                     "Resource": [
-                                        "arn:aws:s3:::khueue-diary-pipeline",
-                                        "arn:aws:s3:::khueue-diary-pipeline/*"
+                                        "arn:aws:s3:::khueue-mage-tools-pipeline",
+                                        "arn:aws:s3:::khueue-mage-tools-pipeline/*"
                                     ]
                                 },
                                 {
@@ -78,8 +78,8 @@
                                     ],
                                     "Effect": "Allow",
                                     "Resource": [
-                                        "arn:aws:s3:::khueue-diary-app",
-                                        "arn:aws:s3:::khueue-diary-app/*"
+                                        "arn:aws:s3:::khueue-mage-tools-app",
+                                        "arn:aws:s3:::khueue-mage-tools-app/*"
                                     ]
                                 }
                             ]
@@ -136,8 +136,8 @@
                                     ],
                                     "Effect": "Allow",
                                     "Resource": [
-                                        "arn:aws:s3:::khueue-diary-pipeline",
-                                        "arn:aws:s3:::khueue-diary-pipeline/*"
+                                        "arn:aws:s3:::khueue-mage-tools-pipeline",
+                                        "arn:aws:s3:::khueue-mage-tools-pipeline/*"
                                     ]
                                 }
                             ]
@@ -151,7 +151,7 @@
         "DeployPipeline": {
             "Properties": {
                 "ArtifactStore": {
-                    "Location": "khueue-diary-pipeline",
+                    "Location": "khueue-mage-tools-pipeline",
                     "Type": "S3"
                 },
                 "RoleArn": {
@@ -172,7 +172,7 @@
                                 },
                                 "Configuration": {
                                     "BranchName": "master",
-                                    "RepositoryName": "khueue-diary"
+                                    "RepositoryName": "khueue-mage-tools"
                                 },
                                 "Name": "SourceAction",
                                 "OutputArtifacts": [

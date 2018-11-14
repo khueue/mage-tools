@@ -12,6 +12,46 @@
                             "ErrorCode": 404,
                             "ResponseCode": 200,
                             "ResponsePagePath": "/index.html"
+                        },
+                        {
+                            "ErrorCachingMinTTL": 3,
+                            "ErrorCode": 400
+                        },
+                        {
+                            "ErrorCachingMinTTL": 3,
+                            "ErrorCode": 403
+                        },
+                        {
+                            "ErrorCachingMinTTL": 3,
+                            "ErrorCode": 405
+                        },
+                        {
+                            "ErrorCachingMinTTL": 3,
+                            "ErrorCode": 414
+                        },
+                        {
+                            "ErrorCachingMinTTL": 3,
+                            "ErrorCode": 416
+                        },
+                        {
+                            "ErrorCachingMinTTL": 3,
+                            "ErrorCode": 500
+                        },
+                        {
+                            "ErrorCachingMinTTL": 3,
+                            "ErrorCode": 501
+                        },
+                        {
+                            "ErrorCachingMinTTL": 3,
+                            "ErrorCode": 502
+                        },
+                        {
+                            "ErrorCachingMinTTL": 3,
+                            "ErrorCode": 503
+                        },
+                        {
+                            "ErrorCachingMinTTL": 3,
+                            "ErrorCode": 504
                         }
                     ],
                     "DefaultCacheBehavior": {
