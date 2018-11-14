@@ -1,0 +1,4 @@
+troposphere==2.3.4
+awacs==0.7.1
+boto3==1.4.7
+awscli==1.11.176

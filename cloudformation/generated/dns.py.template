@@ -1,0 +1,36 @@
+{
+    "Resources": {
+        "HostedZone": {
+            "Properties": {
+                "Name": "mage.khueue.com."
+            },
+            "Type": "AWS::Route53::HostedZone"
+        },
+        "RecordSetGroup": {
+            "Properties": {
+                "HostedZoneId": {
+                    "Ref": "HostedZone"
+                },
+                "RecordSets": [
+                    {
+                        "AliasTarget": {
+                            "DNSName": "d2iev16oh3mkad.cloudfront.net.",
+                            "HostedZoneId": "Z2FDTNDATAQYW2"
+                        },
+                        "Name": "mage.khueue.com.",
+                        "Type": "A"
+                    },
+                    {
+                        "AliasTarget": {
+                            "DNSName": "d2iev16oh3mkad.cloudfront.net.",
+                            "HostedZoneId": "Z2FDTNDATAQYW2"
+                        },
+                        "Name": "mage.khueue.com.",
+                        "Type": "AAAA"
+                    }
+                ]
+            },
+            "Type": "AWS::Route53::RecordSetGroup"
+        }
+    }
+}

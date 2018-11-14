@@ -1,0 +1,80 @@
+{
+    "Resources": {
+        "AppBucket": {
+            "Properties": {
+                "BucketName": "khueue-mage-tools-app",
+                "LoggingConfiguration": {
+                    "DestinationBucketName": {
+                        "Ref": "LogBucket"
+                    },
+                    "LogFilePrefix": "app-s3/"
+                },
+                "WebsiteConfiguration": {
+                    "IndexDocument": "index.html"
+                }
+            },
+            "Type": "AWS::S3::Bucket"
+        },
+        "AppBucketPolicy": {
+            "Properties": {
+                "Bucket": "khueue-mage-tools-app",
+                "PolicyDocument": {
+                    "Statement": [
+                        {
+                            "Action": [
+                                "s3:GetObject"
+                            ],
+                            "Effect": "Allow",
+                            "Principal": {
+                                "AWS": [
+                                    "*"
+                                ]
+                            },
+                            "Resource": [
+                                "arn:aws:s3:::khueue-mage-tools-app/*"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "Type": "AWS::S3::BucketPolicy"
+        },
+        "LogBucket": {
+            "Properties": {
+                "AccessControl": "LogDeliveryWrite",
+                "BucketName": "khueue-mage-tools-logs",
+                "LifecycleConfiguration": {
+                    "Rules": [
+                        {
+                            "ExpirationInDays": 30,
+                            "Id": "DeleteOldObjects",
+                            "Status": "Enabled"
+                        }
+                    ]
+                }
+            },
+            "Type": "AWS::S3::Bucket"
+        },
+        "PipelineBucket": {
+            "Properties": {
+                "BucketName": "khueue-mage-tools-pipeline",
+                "LifecycleConfiguration": {
+                    "Rules": [
+                        {
+                            "ExpirationInDays": 30,
+                            "Id": "DeleteOldObjects",
+                            "Status": "Enabled"
+                        }
+                    ]
+                },
+                "LoggingConfiguration": {
+                    "DestinationBucketName": {
+                        "Ref": "LogBucket"
+                    },
+                    "LogFilePrefix": "pipeline-s3/"
+                }
+            },
+            "Type": "AWS::S3::Bucket"
+        }
+    }
+}

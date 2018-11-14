@@ -1,0 +1,14 @@
+{
+    "Resources": {
+        "SslCertificate": {
+            "Properties": {
+                "DomainName": "mage.khueue.com",
+                "SubjectAlternativeNames": [
+                    "mage.khueue.com"
+                ],
+                "ValidationMethod": "DNS"
+            },
+            "Type": "AWS::CertificateManager::Certificate"
+        }
+    }
+}

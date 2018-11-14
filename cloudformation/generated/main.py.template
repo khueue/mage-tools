@@ -1,0 +1,69 @@
+{
+    "Resources": {
+        "CloudFrontDistribution": {
+            "Properties": {
+                "DistributionConfig": {
+                    "Aliases": [
+                        "mage.khueue.com"
+                    ],
+                    "CustomErrorResponses": [
+                        {
+                            "ErrorCachingMinTTL": 0,
+                            "ErrorCode": 404,
+                            "ResponseCode": 200,
+                            "ResponsePagePath": "/index.html"
+                        }
+                    ],
+                    "DefaultCacheBehavior": {
+                        "AllowedMethods": [
+                            "GET",
+                            "HEAD"
+                        ],
+                        "CachedMethods": [
+                            "GET",
+                            "HEAD"
+                        ],
+                        "Compress": "true",
+                        "DefaultTTL": 5,
+                        "ForwardedValues": {
+                            "Cookies": {
+                                "Forward": "none"
+                            },
+                            "Headers": [],
+                            "QueryString": "false"
+                        },
+                        "MaxTTL": 5,
+                        "MinTTL": 5,
+                        "TargetOriginId": "origin",
+                        "ViewerProtocolPolicy": "redirect-to-https"
+                    },
+                    "DefaultRootObject": "index.html",
+                    "Enabled": "true",
+                    "HttpVersion": "http2",
+                    "IPV6Enabled": "true",
+                    "Logging": {
+                        "Bucket": "khueue-mage-tools-logs.s3.amazonaws.com",
+                        "IncludeCookies": "true",
+                        "Prefix": "app-cloudfront/"
+                    },
+                    "Origins": [
+                        {
+                            "CustomOriginConfig": {
+                                "OriginProtocolPolicy": "http-only"
+                            },
+                            "DomainName": "khueue-mage-tools-app.s3-website-eu-west-1.amazonaws.com",
+                            "Id": "origin"
+                        }
+                    ],
+                    "PriceClass": "PriceClass_100",
+                    "ViewerCertificate": {
+                        "AcmCertificateArn": "arn:aws:acm:us-east-1:682695698822:certificate/f1323242-9fdb-4510-b8d5-be28e3157d0a",
+                        "MinimumProtocolVersion": "TLSv1.2_2018",
+                        "SslSupportMethod": "sni-only"
+                    }
+                }
+            },
+            "Type": "AWS::CloudFront::Distribution"
+        }
+    }
+}

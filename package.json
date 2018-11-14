@@ -6,11 +6,11 @@
   "keywords": [],
   "license": "",
   "scripts": {
-    "dev": "bash ./app/bin/app-dev.sh",
-    "lint": "bash ./app/bin/app-lint.sh",
-    "pretty": "bash ./app/bin/app-pretty.sh",
-    "build": "bash ./app/bin/app-build.sh",
-    "watch-compile": "bash ./app/bin/app-watch-compile.sh",
+    "dev": "bash ./scripts/app-dev.sh",
+    "lint": "bash ./scripts/app-lint.sh",
+    "pretty": "bash ./scripts/app-pretty.sh",
+    "build": "bash ./scripts/app-build.sh",
+    "watch-compile": "bash ./scripts/app-watch-compile.sh",
     "outdated-deps": "npm outdated"
   },
   "devDependencies": {

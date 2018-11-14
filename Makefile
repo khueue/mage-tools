@@ -5,6 +5,41 @@ IMAGE_TAG=mithril-test
 
 export DOCKER_BUILDKIT=0
 
+
+
+
+
+CONTAINER_TAG=khueue-diary
+HERE=$(shell pwd -P)
+
+# Examples:
+# make up cmd="bash"
+# make up cmd="npm run infra-generate"
+up:
+	docker build --tag ${CONTAINER_TAG} --file ./node-python.docker ./
+	@ echo "Don't forget to run npm install from outside!"
+	docker run \
+		--interactive \
+		--tty \
+		--rm \
+		--mount "type=bind,source=${HERE},target=/workdir" \
+		-p 8080:8080 \
+		${CONTAINER_TAG} \
+		${cmd}
+
+aws-build-and-deploy:
+	docker build --tag khueue-diary-aws --file aws-build.docker ./
+	docker run \
+		--rm \
+		--env AWS_DEFAULT_REGION \
+		--env AWS_CONTAINER_CREDENTIALS_RELATIVE_URI \
+		khueue-diary-aws \
+		npm run app-build-and-deploy
+
+
+
+
+
 app-docker-build:
 	docker build --tag $(IMAGE_TAG) ./
 
