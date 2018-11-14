@@ -1,9 +1,9 @@
 {
-  "name": "khueue-diary",
-  "version": "0.0.0",
-  "description": "Diary of khueue.com",
-  "private": true,
+  "name": "mage-tools",
+  "version": "0.0.1",
+  "description": "Tools for WoD: Mage",
   "keywords": [],
+  "private": true,
   "license": "",
   "scripts": {
     "dev": "bash ./scripts/app-dev.sh",
