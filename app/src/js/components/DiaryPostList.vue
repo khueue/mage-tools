@@ -42,7 +42,7 @@ export default {
 		},
 		saveEntry(entry) {
 			const self = this;
-			const entriesColl = db.collection('users').doc(self.currentUser.uid).collection('entries');
+			const entriesColl = db.collection('diary').doc(self.currentUser.uid).collection('posts');
 			if (entry.id) {
 				entriesColl.doc(entry.id).set({
 					message: entry.message,
@@ -66,7 +66,7 @@ export default {
 		},
 		deleteEntry(entry) {
 			const self = this;
-			const entriesColl = db.collection('users').doc(self.currentUser.uid).collection('entries');
+			const entriesColl = db.collection('diary').doc(self.currentUser.uid).collection('posts');
 			entriesColl.doc(entry.id).delete()
 			.then(function () {
 				console.log('Deleted!');
@@ -88,7 +88,7 @@ export default {
 		},
 		subscribeToFirestoreSnapshots() {
 			const self = this;
-			const entriesColl = db.collection('users').doc(self.currentUser.uid).collection('entries');
+			const entriesColl = db.collection('diary').doc(self.currentUser.uid).collection('posts');
 			self.unsubscriber = entriesColl.orderBy('meta.createdAt', 'desc').limit(100).onSnapshot(function(snapshot) {
 				const entries = [];
 				snapshot.forEach(function(snap) {

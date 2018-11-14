@@ -83,5 +83,4 @@ export default {
 					button.button.is-danger.is-pulled-right(v-if="!isNew" @click="deleteEntry") Delete
 </template>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

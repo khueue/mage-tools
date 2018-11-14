@@ -12,6 +12,7 @@ import DiaryPostList from '/js/components/DiaryPostList.vue';
 import RitualSpell from '/js/components/RitualSpell.vue';
 
 const router = new VueRouter({
+	mode: 'history',
 	routes: [
 		{
 			path: '/',
@@ -20,6 +21,10 @@ const router = new VueRouter({
 		{
 			path: '/ritual',
 			component: RitualSpell,
+		},
+		{
+			path: '*',
+			redirect: '/',
 		},
 	],
 });
