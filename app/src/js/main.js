@@ -8,7 +8,7 @@ Vue.use(VueRouter);
 Vue.config.productionTip = false;
 
 import App from '/js/components/App.vue';
-import DiaryPostList from '/js/components/DiaryPostList.vue';
+import Home from '/js/components/Home.vue';
 import RitualSpell from '/js/components/RitualSpell.vue';
 
 const router = new VueRouter({
@@ -16,7 +16,7 @@ const router = new VueRouter({
 	routes: [
 		{
 			path: '/',
-			component: DiaryPostList,
+			component: Home,
 		},
 		{
 			path: '/ritual',

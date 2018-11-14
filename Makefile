@@ -48,6 +48,7 @@ app-npm: app-docker-build
 		-p 1234:1234 \
 		-p 4321:4321 \
 		--mount "type=bind,source=$(PWD)/app,target=/workdir/app" \
+		--mount "type=bind,source=$(PWD)/scripts,target=/workdir/scripts" \
 		$(IMAGE_TAG) \
 		--help
 
@@ -56,35 +57,50 @@ app-dev: app-docker-build
 		-p 1234:1234 \
 		-p 4321:4321 \
 		--mount "type=bind,source=$(PWD)/app,target=/workdir/app" \
+		--mount "type=bind,source=$(PWD)/scripts,target=/workdir/scripts" \
 		$(IMAGE_TAG) \
 		run dev
+
+app-deploy: app-docker-build
+	docker run --interactive --tty --rm \
+		-p 1234:1234 \
+		-p 4321:4321 \
+		--mount "type=bind,source=$(PWD)/app,target=/workdir/app" \
+		--mount "type=bind,source=$(PWD)/scripts,target=/workdir/scripts" \
+		$(IMAGE_TAG) \
+		run deploy
 
 app-lint: app-docker-build
 	docker run --interactive --tty --rm \
 		--mount "type=bind,source=$(PWD)/app,target=/workdir/app" \
+		--mount "type=bind,source=$(PWD)/scripts,target=/workdir/scripts" \
 		$(IMAGE_TAG) \
 		run lint
 
 app-pretty: app-docker-build
 	docker run --interactive --tty --rm \
 		--mount "type=bind,source=$(PWD)/app,target=/workdir/app" \
+		--mount "type=bind,source=$(PWD)/scripts,target=/workdir/scripts" \
 		$(IMAGE_TAG) \
 		run pretty
 
 app-outdated-deps: app-docker-build
 	docker run --interactive --tty --rm \
 		--mount "type=bind,source=$(PWD)/app,target=/workdir/app" \
+		--mount "type=bind,source=$(PWD)/scripts,target=/workdir/scripts" \
 		$(IMAGE_TAG) \
 		run outdated-deps
 
 app-build: app-docker-build
 	docker run --interactive --tty --rm \
 		--mount "type=bind,source=$(PWD)/app,target=/workdir/app" \
+		--mount "type=bind,source=$(PWD)/scripts,target=/workdir/scripts" \
 		$(IMAGE_TAG) \
 		run build
 
 app-watch-compile: app-docker-build
 	docker run --interactive --tty --rm \
 		--mount "type=bind,source=$(PWD)/app,target=/workdir/app" \
+		--mount "type=bind,source=$(PWD)/scripts,target=/workdir/scripts" \
 		$(IMAGE_TAG) \
 		run watch-compile

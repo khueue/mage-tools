@@ -10,6 +10,7 @@
     "lint": "bash ./scripts/app-lint.sh",
     "pretty": "bash ./scripts/app-pretty.sh",
     "build": "bash ./scripts/app-build.sh",
+    "deploy": "bash ./scripts/app-deploy.sh",
     "watch-compile": "bash ./scripts/app-watch-compile.sh",
     "outdated-deps": "npm outdated"
   },

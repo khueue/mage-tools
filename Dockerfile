@@ -12,5 +12,14 @@ RUN apk add --no-cache \
 COPY ./package.json ./
 RUN npm install --verbose
 
+RUN apk add --no-cache curl
+RUN \
+	curl https://bootstrap.pypa.io/get-pip.py --output ./get-pip.py && \
+	python ./get-pip.py && \
+	rm ./get-pip.py
+
+COPY ./requirements.txt ./
+RUN pip install -r ./requirements.txt
+
 ENTRYPOINT ["npm"]
 CMD ["--help"]
