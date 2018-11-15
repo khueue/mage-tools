@@ -72,9 +72,9 @@ cloudfront_distribution = troposphere.cloudfront.Distribution(
 				'HEAD',
 			],
 			Compress=True,
-			DefaultTTL=5, # @todo XXX Change this.
-			MinTTL=5, # @todo XXX Change this.
-			MaxTTL=5, # @todo XXX Change this.
+			DefaultTTL=10,
+			MinTTL=0,
+			MaxTTL=60*60*24*365,
 			TargetOriginId='origin',
 			ForwardedValues=troposphere.cloudfront.ForwardedValues(
 				QueryString=False,

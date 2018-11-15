@@ -219,6 +219,7 @@ export default {
 
 						.column.is-4
 							.box
+								b-field(label="Extras")
 								b-field
 									b-checkbox(v-model="toggles" native-value="bestow") Bestow
 								b-field

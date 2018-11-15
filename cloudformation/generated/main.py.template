@@ -64,7 +64,7 @@
                             "HEAD"
                         ],
                         "Compress": "true",
-                        "DefaultTTL": 5,
+                        "DefaultTTL": 10,
                         "ForwardedValues": {
                             "Cookies": {
                                 "Forward": "none"
@@ -72,8 +72,8 @@
                             "Headers": [],
                             "QueryString": "false"
                         },
-                        "MaxTTL": 5,
-                        "MinTTL": 5,
+                        "MaxTTL": 31536000,
+                        "MinTTL": 0,
                         "TargetOriginId": "origin",
                         "ViewerProtocolPolicy": "redirect-to-https"
                     },
