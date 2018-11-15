@@ -12,7 +12,7 @@ BUCKET=khueue-mage-tools-app
 aws s3 cp \
 	--recursive \
 	--exclude index.html \
-	--cache-control max-age=3600 \
+	--cache-control max-age=2592000 \
 	${DIST_FOLDER} \
 	s3://${BUCKET}/
 
