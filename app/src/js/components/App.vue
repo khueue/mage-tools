@@ -11,11 +11,11 @@ export default {}
 <style lang="scss" scoped>
 .view-fade-enter-active,
 .view-fade-leave-active {
-  transition: opacity .25s ease;
+	transition: opacity .15s ease;
 }
 
 .view-fade-enter,
 .view-fade-leave-to {
-  opacity: 0;
+	opacity: 0;
 }
 </style>
