@@ -125,6 +125,11 @@ export default {
 			if (this.toggles.includes('bestow')) {
 				total += 1;
 			}
+			if (this.duration) {
+				if (this.duration.startsWith('advanced-')) {
+					total += 1;
+				}
+			}
 			return total;
 		},
 		calcManaCost() {
