@@ -45,8 +45,6 @@ app-docker-build:
 
 app-npm: app-docker-build
 	docker run --interactive --tty --rm \
-		-p 1234:1234 \
-		-p 4321:4321 \
 		--mount "type=bind,source=$(PWD)/app,target=/workdir/app" \
 		--mount "type=bind,source=$(PWD)/scripts,target=/workdir/scripts" \
 		$(IMAGE_TAG) \
@@ -63,8 +61,6 @@ app-dev: app-docker-build
 
 app-deploy: app-docker-build
 	docker run --interactive --tty --rm \
-		-p 1234:1234 \
-		-p 4321:4321 \
 		--mount "type=bind,source=$(PWD)/app,target=/workdir/app" \
 		--mount "type=bind,source=$(PWD)/scripts,target=/workdir/scripts" \
 		$(IMAGE_TAG) \
