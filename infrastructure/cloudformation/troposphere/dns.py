@@ -43,4 +43,4 @@ record_set_group = troposphere.route53.RecordSetGroup(
 	RecordSets=record_sets,
 )
 
-print template.to_json()
+print(template.to_json())

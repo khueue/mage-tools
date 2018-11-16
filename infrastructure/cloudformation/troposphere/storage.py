@@ -94,4 +94,4 @@ app_bucket_policy = troposphere.s3.BucketPolicy(
 	),
 )
 
-print template.to_json()
+print(template.to_json())

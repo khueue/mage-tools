@@ -224,4 +224,4 @@ pipeline = troposphere.codepipeline.Pipeline(
 	],
 )
 
-print template.to_json()
+print(template.to_json())

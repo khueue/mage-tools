@@ -5,12 +5,10 @@ set -o pipefail
 set -o nounset
 set -o xtrace
 
-OUT_DIR=./app/_build/dev
+OUT_DIR=./app/_build/dist
 
 rm -rf "${OUT_DIR}"
 mkdir -p "${OUT_DIR}"
-parcel serve ./app/src/index.pug \
+./node_modules/.bin/parcel build ./app/src/index.pug \
 	--out-dir "${OUT_DIR}" \
-	--port 1234 \
-	--hmr-port 4321 \
 	--log-level 4

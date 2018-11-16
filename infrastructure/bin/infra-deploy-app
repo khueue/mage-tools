@@ -5,20 +5,28 @@ set -o pipefail
 set -o nounset
 # set -o xtrace
 
-DIST_FOLDER=./app/_build/dist
+DIST_FOLDER=/app/_build/dist
 BUCKET=khueue-mage-tools-app
 
+if [ ! -d "${DIST_FOLDER}" ]; then
+	echo "App dist folder must exist!"
+	exit 1
+fi
+
+TTL_DYNAMIC=10
+TTL_STATIC=7776000
+
 echo
-echo "--- Upload all files except index.html ..."
+echo "--- Upload all files (except index.html) with long TTL ..."
 aws s3 cp \
 	--recursive \
 	--exclude index.html \
-	--cache-control max-age=2592000 \
+	--cache-control max-age="${TTL_STATIC}" \
 	${DIST_FOLDER} \
 	s3://${BUCKET}/
 
 echo
-echo "--- Request every file once, to fill the cache ..."
+echo "--- Request every file once, to prefill the cache ..."
 for file in ${DIST_FOLDER}/*; do
 	basename=${file##*/}
 	echo "/${basename}"
@@ -34,7 +42,7 @@ done
 echo
 echo "--- Upload index.html last, to switch smoothly to new version ..."
 aws s3 cp \
-	--cache-control max-age=10 \
+	--cache-control max-age="${TTL_DYNAMIC}" \
 	${DIST_FOLDER}/index.html \
 	s3://${BUCKET}/
 

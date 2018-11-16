@@ -15,4 +15,4 @@ ssl_certificate = troposphere.certificatemanager.Certificate(
 	],
 )
 
-print template.to_json()
+print(template.to_json())

@@ -4,11 +4,7 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
-# Python with:
-# -Wall Warnings.
-# -3 Compatibility warnings for Python 3.
-# -B Skip generating .pyc files.
-PYTHON="python -Wall -3 -B"
+PYTHON="python -Wall"
 
 declare -a STACKS=(
 	dns.py
@@ -21,9 +17,9 @@ declare -a STACKS=(
 rm -rf ./cloudformation/generated/*.template
 mkdir -p ./cloudformation/generated
 
+echo
 for stack in "${STACKS[@]}"; do
 	echo "--- Generating template for ./cloudformation/troposphere/${stack} ..."
 	${PYTHON} "./cloudformation/troposphere/${stack}" > "./cloudformation/generated/${stack}.template"
 done
-
 echo

@@ -92,4 +92,4 @@ cloudfront_distribution = troposphere.cloudfront.Distribution(
 	),
 )
 
-print template.to_json()
+print(template.to_json())

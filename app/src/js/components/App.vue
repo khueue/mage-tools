@@ -11,7 +11,7 @@ export default {}
 <style lang="scss" scoped>
 .view-fade-enter-active,
 .view-fade-leave-active {
-	transition: opacity .15s ease;
+	transition: opacity 0.15s ease;
 }
 
 .view-fade-enter,

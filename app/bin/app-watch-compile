@@ -5,7 +5,7 @@ set -o pipefail
 set -o nounset
 set -o xtrace
 
-tsc \
+./node_modules/.bin/tsc \
 	--project ./app/src/ts/tsconfig.json \
 	--watch \
 	--outDir ./watch-output

@@ -5,4 +5,4 @@ set -o pipefail
 set -o nounset
 set -o xtrace
 
-prettier --write './app/src/**/*.*'
+./node_modules/.bin/eslint --fix ./app/src/

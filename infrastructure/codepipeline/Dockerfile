@@ -1,8 +1,9 @@
-FROM mhart/alpine-node:9.2
+FROM mhart/alpine-node:8.7
+#FROM 3.7.1-alpine3.8
 
 WORKDIR /workdir
 
-RUN apk --no-cache add \
+RUN apk add --no-cache \
 	bash \
 	curl \
 	python
@@ -12,5 +13,8 @@ RUN \
 	python ./get-pip.py && \
 	rm ./get-pip.py
 
-COPY ./requirements.txt ./
+COPY ./ ./
+
 RUN pip install -r ./requirements.txt
+
+RUN npm install

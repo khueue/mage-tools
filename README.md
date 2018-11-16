@@ -1,3 +1,5 @@
 # mage-tools
 
-WIP.
+## Todo
+
+-  Fix auto-deploy using CodePipeline.

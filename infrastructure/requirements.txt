@@ -1,0 +1,3 @@
+troposphere==2.3.4
+awacs==0.8.1
+awscli==1.16.56
