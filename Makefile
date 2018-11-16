@@ -7,6 +7,7 @@ dev:
 	make dev-cmd cmd="./app/bin/app-dev"
 
 build-and-deploy:
+	limes assume private
 	make dev-cmd cmd="./app/bin/app-build"
 	make infra-cmd cmd="./bin/infra-deploy-app"
 
