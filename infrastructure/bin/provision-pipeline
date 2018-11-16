@@ -7,9 +7,9 @@ set -o xtrace
 
 export AWS_DEFAULT_REGION=eu-west-1
 
-./bin/infra-generate
+./bin/generate
 
 aws cloudformation deploy \
 	--capabilities CAPABILITY_IAM \
 	--stack-name MageTools-Pipeline \
-	--template-file ./cloudformation/generated/pipeline.py.template
+	--template-file ./cloudformation/_generated/pipeline.py.template

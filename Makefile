@@ -4,17 +4,17 @@ default:
 # Convenience wrappers.
 
 dev:
-	make dev-cmd cmd="./app/bin/app-dev"
+	make dev-cmd cmd="./app/bin/dev"
 
 build-and-deploy:
 	limes assume private
-	make dev-cmd cmd="./app/bin/app-build"
-	make infra-cmd cmd="./bin/infra-deploy-app"
+	make dev-cmd cmd="./app/bin/build"
+	make infra-cmd cmd="./bin/deploy-app"
 
 # Dev tooling.
 #
-# make dev-cmd cmd="./app/bin/app-build"
-# make dev-cmd cmd="./app/bin/app-pretty"
+# make dev-cmd cmd="./app/bin/build"
+# make dev-cmd cmd="./app/bin/pretty"
 # make dev-cmd cmd="npm outdated"
 
 IMAGE_TAG_DEV=mage-tools-dev
@@ -34,8 +34,8 @@ dev-docker-build:
 
 # Infra tooling.
 #
-# make infra-cmd cmd="./bin/infra-generate"
-# make infra-cmd cmd="./bin/infra-deploy-app"
+# make infra-cmd cmd="./bin/generate"
+# make infra-cmd cmd="./bin/deploy-app"
 # make infra-cmd cmd="pip freeze"
 
 IMAGE_TAG_INFRA=mage-tools-infra

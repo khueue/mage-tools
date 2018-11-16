@@ -7,8 +7,8 @@ set -o xtrace
 
 export AWS_DEFAULT_REGION=us-east-1
 
-./bin/infra-generate
+./bin/generate
 
 aws cloudformation deploy \
 	--stack-name MageTools-Global \
-	--template-file ./cloudformation/generated/global.py.template
+	--template-file ./cloudformation/_generated/global.py.template
