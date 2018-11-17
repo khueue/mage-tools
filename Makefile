@@ -4,7 +4,7 @@ default:
 # Convenience wrappers.
 
 dev:
-	make dev-cmd cmd="./app/bin/dev"
+	make dev-cmd-with-ports cmd="./app/bin/dev"
 
 build-and-deploy:
 	limes assume private
@@ -20,6 +20,12 @@ build-and-deploy:
 IMAGE_TAG_DEV=mage-tools-dev
 
 dev-cmd: dev-docker-build
+	docker run --interactive --tty --rm \
+		--mount "type=bind,source=$(PWD)/app,target=/workdir/app" \
+		${IMAGE_TAG_DEV} \
+		${cmd}
+
+dev-cmd-with-ports: dev-docker-build
 	docker run --interactive --tty --rm \
 		--mount "type=bind,source=$(PWD)/app,target=/workdir/app" \
 		--publish 1234:1234 \
