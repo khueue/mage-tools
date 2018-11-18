@@ -12,7 +12,7 @@ server:
 build-and-deploy:
 	limes assume private
 	make app-cmd cmd=./app/bin/build
-	make infra-cmd cmd=./bin/deploy-app
+	make infra-cmd cmd=./infrastructure/bin/deploy-app
 
 # Application tooling.
 #

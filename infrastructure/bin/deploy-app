@@ -14,7 +14,7 @@ if [ ! -d "${DIST_FOLDER}" ]; then
 fi
 
 TTL_DYNAMIC=10
-TTL_STATIC=7776000
+TTL_STATIC=$((3*30*24*60*60))
 
 echo
 echo "--- Upload all files (except index.html) with long TTL ..."
