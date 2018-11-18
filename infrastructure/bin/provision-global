@@ -11,4 +11,4 @@ export AWS_DEFAULT_REGION=us-east-1
 
 aws cloudformation deploy \
 	--stack-name MageTools-Global \
-	--template-file ./cloudformation/_generated/global.py.template
+	--template-file ./infrastructure/cloudformation/_generated/global.py.template
