@@ -11,4 +11,4 @@ export AWS_DEFAULT_REGION=eu-west-1
 
 aws cloudformation deploy \
 	--stack-name MageTools-Storage \
-	--template-file ./infrastructure/cloudformation/_generated/storage.py.template
+	--template-file ./cloudformation/_generated/storage.py.template

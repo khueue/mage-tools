@@ -1,2 +1,5 @@
 app/_build/dev
 app/_build/dist
+app/.cache
+app/node_modules
+app/package-lock.json

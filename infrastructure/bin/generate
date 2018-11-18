@@ -13,13 +13,13 @@ declare -a STACKS=(
 	storage.py
 )
 
-rm -rf ./infrastructure/cloudformation/_generated/*.template
-mkdir -p ./infrastructure/cloudformation/_generated
+rm -rf ./cloudformation/_generated/*.template
+mkdir -p ./cloudformation/_generated
 
 echo
 for stack in "${STACKS[@]}"; do
 	echo "--- Generating template for ./cloudformation/troposphere/${stack} ..."
-	${PYTHON} "./infrastructure/cloudformation/troposphere/${stack}" \
-		> "./infrastructure/cloudformation/_generated/${stack}.template"
+	${PYTHON} "./cloudformation/troposphere/${stack}" \
+		> "./cloudformation/_generated/${stack}.template"
 done
 echo

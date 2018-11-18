@@ -13,6 +13,3 @@ RUN apk add --no-cache \
 # For Parcel.
 RUN apk add --no-cache \
 	util-linux
-
-COPY ./package.json ./
-RUN npm install && npm cache clean --force

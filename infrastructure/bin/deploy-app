@@ -5,7 +5,7 @@ set -o pipefail
 set -o nounset
 # set -o xtrace
 
-DIST_FOLDER=./app/_build/dist
+DIST_FOLDER=/app/_build/dist
 BUCKET=khueue-mage-tools-app
 
 if [ ! -d "${DIST_FOLDER}" ]; then
