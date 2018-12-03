@@ -134,11 +134,11 @@ export default {
 		},
 		calcManaCost() {
 			let total = 0;
-			if (this.duration) {
-				if (this.duration.startsWith('advanced-')) {
-					total += 1;
-				}
-			}
+			// if (this.duration) {
+			// 	if (this.duration.startsWith('advanced-')) {
+			// 		total += 1;
+			// 	}
+			// }
 			if (this.hangTime) {
 				total += 1;
 			}
@@ -154,9 +154,9 @@ export default {
 			if (this.toggles.includes('aggravated')) {
 				total += 1;
 			}
-			if (this.toggles.includes('bestow')) {
-				total += 1;
-			}
+			// if (this.toggles.includes('bestow')) {
+			// 	total += 1;
+			// }
 			if (this.toggles.includes('nonruling')) {
 				total += 1;
 			}
@@ -245,7 +245,7 @@ export default {
 		.container
 			.columns.is-centered
 				.column.is-10
-					code mage-tools 0.0.1
+					code mage-tools 0.0.2
 </template>
 
 <style lang="scss" scoped>
